@@ -18,7 +18,6 @@ export const useSettingsStore = defineStore('settings', {
         setTheme: async function (payload) {
             this.theme = payload
         }
-    }
-}, {
+    },
     persist: true
 })

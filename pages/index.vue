@@ -1,7 +1,10 @@
 <template>
     <div>
-        <p>Hello world, authenticated: {{ isAuthenticated }}</p>
+        <p>Hello world</p>
+        <p>{{ isAuthenticated }}</p>
         <button @click="isAuthenticated = !isAuthenticated">authenticate</button>
+        <p>{{ currentTheme }}</p>
+        <button @click="toggleTheme(theme = !theme)">setTheme</button>
     </div>
 </template>
 
@@ -17,10 +20,16 @@ const isAuthenticated = computed({
         auth.setAuthenticated(val)
     }
 })
-const currentTheme = computed({
+let currentTheme = computed({
     get: () => settings.getTheme,
     set: (val) => {
         settings.setTheme(val)
     }
 })
+
+let theme = false
+function toggleTheme(theme) {
+    console.log(theme)
+    currentTheme.value = theme ? 'dark' : 'light'
+}
 </script>

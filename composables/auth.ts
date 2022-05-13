@@ -13,7 +13,6 @@ export const useAuthStore = defineStore("auth", {
         setAuthenticated: async function (payload) {
             this.authenticated = payload
         }
-    }
-}, {
+    },
     persist: true
 });
